@@ -5,178 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ArdSoft Solutions — Software, AI & Data for European Businesses</title>
 <meta name="description" content="ArdSoft Solutions (Barcelona): web & SaaS development, AI agents, ERP & CRM consulting and data analytics for companies across Europe.">
+<link rel="canonical" href="https://ardsoftsolutions.com/">
+<meta name="theme-color" content="#0A1022">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ardsoftsolutions.com/">
 <meta property="og:title" content="ArdSoft Solutions">
 <meta property="og:description" content="Software, AI and data solutions that speak your business language. Based in Barcelona, working across Europe.">
-<meta property="og:type" content="website">
+<meta property="og:image" content="https://ardsoftsolutions.com/logo-512.png">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#0B1220; --navy-2:#111A2E; --ink:#0F172A; --muted:#5B6478; --line:#E6E9F0;
-    --bg:#FFFFFF; --bg-soft:#F5F7FB;
-    --blue:#2563EB; --sky:#38BDF8; --orange:#F2551D; --orange-2:#FF8A3D;
-    --radius:18px; --max:1160px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  img,svg{display:block}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  .grad-text{background:linear-gradient(90deg,var(--sky),var(--blue) 45%,var(--orange-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-
-  /* Header */
-  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .25s,box-shadow .25s}
-  header.scrolled{background:rgba(11,18,32,.88);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
-  .nav{display:flex;align-items:center;gap:28px;height:72px;color:#fff}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.01em}
-  .brand svg{width:38px;height:38px}
-  .brand small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.22em;color:#9AA6BF;text-transform:uppercase;margin-top:-3px}
-  .menu{display:flex;gap:26px;margin-left:auto;font-weight:600;font-size:15px;color:#C9D2E3}
-  .menu a:hover{color:#fff}
-  .langs{display:flex;gap:2px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:3px}
-  .langs button{border:0;background:none;color:#AEB8CC;font:600 12px/1 "Manrope",sans-serif;padding:7px 9px;border-radius:999px;cursor:pointer}
-  .langs button.active{background:#fff;color:var(--navy)}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:12px;border:0;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s}
-  .btn-primary{background:linear-gradient(135deg,var(--orange-2),var(--orange));color:#fff;box-shadow:0 8px 24px -8px rgba(242,85,29,.6)}
-  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 28px -8px rgba(242,85,29,.7)}
-  .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.16)}
-  .btn-ghost:hover{background:rgba(255,255,255,.14)}
-  .nav .btn{padding:10px 16px;font-size:14px}
-  .burger{display:none;margin-left:auto;background:none;border:0;color:#fff;cursor:pointer;padding:6px}
-
-  /* Hero */
-  .hero{position:relative;background:var(--navy);color:#fff;padding:150px 0 90px;overflow:hidden}
-  .hero:before{content:"";position:absolute;width:720px;height:720px;right:-180px;top:-220px;background:radial-gradient(circle,rgba(37,99,235,.45),transparent 62%)}
-  .hero:after{content:"";position:absolute;width:560px;height:560px;left:-220px;bottom:-300px;background:radial-gradient(circle,rgba(242,85,29,.28),transparent 62%)}
-  .hero .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 70% 30%,#000 20%,transparent 70%)}
-  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.06em;color:#C9D2E3;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:7px 14px;border-radius:999px}
-  .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(242,85,29,.25)}
-  .hero h1{font-size:clamp(36px,5.2vw,62px);line-height:1.06;letter-spacing:-.03em;font-weight:800;margin:22px 0 20px}
-  .hero p.lead{font-size:clamp(16px,1.6vw,19px);color:#B8C2D6;max-width:600px}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-  .hero-art{position:relative;aspect-ratio:1;max-width:400px;justify-self:center;width:100%}
-  .hero-art .ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,.1)}
-  .hero-art .ring.r2{inset:14%;border-color:rgba(56,189,248,.22)}
-  .hero-art .ring.r3{inset:28%;border-color:rgba(242,85,29,.25)}
-  .hero-art svg.mark{position:absolute;inset:30%;width:40%;height:40%;filter:drop-shadow(0 12px 40px rgba(37,99,235,.55))}
-  .chip{position:absolute;font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:999px;background:rgba(17,26,46,.9);border:1px solid rgba(255,255,255,.14);white-space:nowrap;animation:float 6s ease-in-out infinite}
-  .chip b{color:var(--orange-2)}
-  .chip.c1{top:6%;left:2%}.chip.c2{top:24%;right:-4%;animation-delay:-1.5s}.chip.c3{bottom:20%;left:-6%;animation-delay:-3s}.chip.c4{bottom:4%;right:8%;animation-delay:-4.5s}
-  @keyframes float{50%{transform:translateY(-8px)}}
-  .stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:70px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);overflow:hidden}
-  .stat{background:var(--navy-2);padding:24px 26px}
-  .stat strong{display:block;font-size:34px;font-weight:800;letter-spacing:-.02em}
-  .stat span{color:#9AA6BF;font-size:14px;font-weight:600}
-
-  /* Sections */
-  section{padding:100px 0}
-  .sec-head{max-width:680px;margin-bottom:52px}
-  .kicker{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
-  h2{font-size:clamp(30px,3.6vw,44px);line-height:1.12;letter-spacing:-.025em;font-weight:800;margin:10px 0 14px}
-  .sec-head p{color:var(--muted);font-size:17px}
-
-  .services{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-  .card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;transition:transform .2s,box-shadow .2s,border-color .2s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 22px 50px -24px rgba(15,23,42,.25);border-color:#D4DAE6}
-  .card .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#EAF2FF,#FFF1EA);margin-bottom:20px}
-  .card .ico svg{width:26px;height:26px}
-  .card h3{font-size:21px;letter-spacing:-.01em;margin-bottom:8px}
-  .card p{color:var(--muted)}
-  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-  .tags span{font-size:12.5px;font-weight:700;color:#3B4A66;background:var(--bg-soft);border:1px solid var(--line);padding:5px 11px;border-radius:999px}
-
-  .why{background:var(--bg-soft)}
-  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-  .points{display:grid;gap:26px}
-  .point{display:flex;gap:16px}
-  .point .num{flex:none;width:40px;height:40px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
-  .point h3{font-size:18px;margin-bottom:4px}
-  .point p{color:var(--muted)}
-  .panel{background:var(--navy);color:#fff;border-radius:22px;padding:34px;position:relative;overflow:hidden}
-  .panel:after{content:"";position:absolute;width:340px;height:340px;right:-140px;top:-140px;background:radial-gradient(circle,rgba(37,99,235,.5),transparent 65%)}
-  .panel h4{position:relative;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#9AA6BF;margin-bottom:14px}
-  .panel .list{position:relative;display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
-  .panel .list:last-child{margin-bottom:0}
-  .panel .list span{font-weight:700;font-size:14.5px;padding:9px 15px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
-  .panel .list.countries span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange-2);margin-right:9px;vertical-align:middle}
-  .quote{position:relative;margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);color:#C9D2E3;font-size:16px;font-style:italic}
-
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
-  .step{padding:28px;border-radius:var(--radius);border:1px solid var(--line);position:relative}
-  .step:before{counter-increment:s;content:"0" counter(s);font-size:14px;font-weight:800;color:var(--orange);letter-spacing:.06em}
-  .step h3{font-size:19px;margin:12px 0 6px}
-  .step p{color:var(--muted);font-size:15px}
-
-  .contact{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-  .contact:before{content:"";position:absolute;width:700px;height:700px;left:-260px;top:-260px;background:radial-gradient(circle,rgba(37,99,235,.32),transparent 62%)}
-  .contact-grid{position:relative;display:grid;grid-template-columns:.85fr 1.15fr;gap:56px}
-  .contact .sec-head p{color:#B8C2D6}
-  .info{display:grid;gap:14px;margin-top:8px}
-  .info a,.info div{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-weight:600}
-  .info a:hover{background:rgba(255,255,255,.09)}
-  .info svg{width:22px;height:22px;flex:none;color:var(--sky)}
-  .info small{display:block;color:#9AA6BF;font-weight:600;font-size:12.5px}
-  form{background:#fff;color:var(--ink);border-radius:22px;padding:34px;box-shadow:0 30px 80px -30px rgba(0,0,0,.6)}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  label{display:block;font-size:13.5px;font-weight:700;margin-bottom:6px;color:#2A3550}
-  .field{margin-bottom:16px}
-  input,select,textarea{width:100%;font:500 15px "Manrope",sans-serif;color:var(--ink);padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:#FAFBFD;transition:border-color .15s,box-shadow .15s}
-  textarea{min-height:120px;resize:vertical}
-  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.12);background:#fff}
-  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted);margin:4px 0 20px}
-  .consent input{width:18px;height:18px;margin-top:2px;flex:none;accent-color:var(--orange)}
-  form .btn{width:100%}
-  .status{margin-top:14px;font-weight:700;font-size:14.5px;text-align:center;min-height:22px}
-  .status.ok{color:#0E9F6E}.status.err{color:#DC2626}
-  .hp{position:absolute;left:-9999px}
-
-  footer{background:#070C17;color:#8592AB;padding:30px 0;font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-  footer .brand{color:#fff;font-size:16px}
-  footer .brand svg{width:28px;height:28px}
-
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.chip{animation:none}html{scroll-behavior:auto}}
-
-  @media (max-width:1000px){
-    .hero-inner,.why-grid,.contact-grid{grid-template-columns:1fr}
-    .hero-art{max-width:320px;order:-1;display:none}
-    .steps{grid-template-columns:repeat(2,1fr)}
-    .stats{grid-template-columns:repeat(2,1fr)}
-  }
-  @media (max-width:860px){
-    .menu,.nav>.btn{display:none}
-    .burger{display:block}
-    .nav{gap:12px}
-    .langs{margin-left:auto}
-    .burger{margin-left:0}
-    .menu.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:rgba(11,18,32,.97);padding:8px 24px 20px}
-    .menu.open a{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-    header.menu-open{background:rgba(11,18,32,.97)}
-  }
-  @media (max-width:640px){
-    .wrap{padding:0 16px}
-    section{padding:72px 0}
-    .hero{padding:120px 0 64px}
-    .services,.steps,.row{grid-template-columns:1fr}
-    .card,form,.panel{padding:24px}
-    .brand small{display:none}
-    .langs button{padding:6px 7px;font-size:11px}
-  }
-</style>
+<link rel="apple-touch-icon" href="logo-512.png">
+<link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i><div class="grid"></div></div>
 
-<header id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="lgB" x1="10" y1="10" x2="90" y2="85" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
+    <linearGradient id="lgO" x1="30" y1="70" x2="75" y2="35" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2551D"/><stop offset="1" stop-color="#FFA552"/></linearGradient>
+    <symbol id="mark" viewBox="0 0 100 100">
+      <path d="M69.8 47.4 L84.1 73 Q88 80 80 80 L20 80 Q12 80 15.9 73 L46.1 19 Q50 12 53.9 19 L61.4 32.4" fill="none" stroke="url(#lgB)" stroke-width="7" stroke-linecap="round"/>
+      <path d="M32 70 L47.4 42.7 Q50 38 52.6 42.7 L68 70" fill="none" stroke="url(#lgO)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="60" r="4.6" fill="#FF8A3D"/>
+      <circle cx="74" cy="34" r="3.2" fill="#FF8A3D"/>
+      <circle cx="82" cy="27" r="2.2" fill="#38BDF8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
   <div class="wrap nav">
     <a href="#" class="brand" aria-label="ArdSoft Solutions">
       <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mark"/></svg>
-      <div>ArdSoft<small>Solutions</small></div>
+      <span class="wm">ArdSoft<small>solutions</small></span>
     </a>
     <nav class="menu" id="menu">
       <a href="#services" data-i18n="nav_services">Services</a>
@@ -192,49 +54,45 @@
   </div>
 </header>
 
-<!-- Logo symbol (reused) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="ardBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
-    <linearGradient id="ardOrange" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFA552"/><stop offset="1" stop-color="#F2551D"/></linearGradient>
-    <symbol id="mark" viewBox="0 0 100 100">
-      <path d="M50 12 L88 80 L12 80 Z" fill="none" stroke="url(#ardBlue)" stroke-width="8" stroke-linejoin="round"/>
-      <path d="M42 58 H58" stroke="#F86A27" stroke-width="6"/>
-      <path d="M33 68 L50 37 L67 68" fill="none" stroke="url(#ardOrange)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="84" cy="30" r="4" fill="#F2551D"/>
-      <circle cx="92" cy="42" r="2.6" fill="#38BDF8"/>
-    </symbol>
-  </defs>
-</svg>
-
 <main>
 <section class="hero">
-  <div class="grid-bg"></div>
   <div class="wrap">
     <div class="hero-inner">
       <div>
         <span class="eyebrow"><i></i><span data-i18n="hero_eyebrow">Barcelona · Working across Europe</span></span>
         <h1><span data-i18n="hero_title_1">Software and AI that speak</span> <span class="grad-text" data-i18n="hero_title_2">your business language</span></h1>
-        <p class="lead" data-i18n="hero_lead">We build websites, SaaS products, AI agents and data solutions — and help you get the most out of your ERP and CRM. Five years of projects for companies in six European countries.</p>
+        <p class="lead" data-i18n="hero_lead">We build websites, SaaS products, AI agents and data solutions — and help you get the most out of your ERP and CRM.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary" data-i18n="hero_cta1">Discuss your project</a>
           <a href="#services" class="btn btn-ghost" data-i18n="hero_cta2">Our services</a>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
-        <svg class="mark" viewBox="0 0 100 100"><use href="#mark"/></svg>
-        <span class="chip c1"><b>AI</b> Agents</span>
-        <span class="chip c2">SaaS <b>+ AI</b></span>
-        <span class="chip c3">ERP · CRM</span>
-        <span class="chip c4">Data <b>&amp;</b> BI</span>
+
+      <div class="orbits" aria-hidden="true">
+        <div class="orbit o1"><div class="track"></div><div class="spin">
+          <div class="sat" style="--a:-35deg;--k:.5"><div class="upright"><span class="chip c-blue"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M9 21h6"/></svg></span><span data-i18n="o1">Web & SaaS</span></span></div></div>
+          <div class="sat" style="--a:145deg;--k:.5"><div class="upright"><span class="chip c-orange"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4M9.5 13h.01M14.5 13h.01"/></svg></span><span data-i18n="o2">AI Agents</span></span></div></div>
+          <div class="sat" style="--a:55deg;--k:.5"><div class="upright"><i class="planet" style="--c:#38BDF8;display:block"></i></div></div>
+          <div class="sat" style="--a:235deg;--k:.5"><div class="upright"><i class="planet" style="--c:#FF8A3D;display:block;width:7px;height:7px"></i></div></div>
+        </div></div>
+        <div class="orbit o2"><div class="track"></div><div class="spin">
+          <div class="sat" style="--a:55deg;--k:.35"><div class="upright"><span class="chip c-violet"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h7v5H4zM13 4h7v6h-7zM13 14h7v6h-7zM4 16h7v4H4z"/></svg></span><span data-i18n="o3">ERP & CRM</span></span></div></div>
+          <div class="sat" style="--a:235deg;--k:.35"><div class="upright"><span class="chip c-teal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></span><span data-i18n="o4">Data & BI</span></span></div></div>
+          <div class="sat" style="--a:150deg;--k:.35"><div class="upright"><i class="planet" style="--c:#A78BFA;display:block;width:8px;height:8px"></i></div></div>
+        </div></div>
+        <div class="orbit o3"><div class="track"></div><div class="spin">
+          <div class="sat" style="--a:20deg;--k:.2"><div class="upright"><i class="planet" style="--c:#FF8A3D;display:block;width:9px;height:9px"></i></div></div>
+          <div class="sat" style="--a:200deg;--k:.2"><div class="upright"><i class="planet" style="--c:#38BDF8;display:block;width:6px;height:6px"></i></div></div>
+        </div></div>
+        <div class="core"><svg viewBox="0 0 100 100"><use href="#mark"/></svg></div>
       </div>
     </div>
+
     <div class="stats">
-      <div class="stat"><strong>5+</strong><span data-i18n="stat_years">years in Europe</span></div>
-      <div class="stat"><strong>6</strong><span data-i18n="stat_countries">countries</span></div>
-      <div class="stat"><strong>5+</strong><span data-i18n="stat_industries">industries</span></div>
-      <div class="stat"><strong>5</strong><span data-i18n="stat_languages">working languages</span></div>
+      <div class="stat glass fx reveal" data-tilt="8"><strong>5+</strong><span data-i18n="stat_years">years in Europe</span></div>
+      <div class="stat glass fx reveal" data-tilt="8"><strong>6</strong><span data-i18n="stat_countries">countries</span></div>
+      <div class="stat glass fx reveal" data-tilt="8"><strong>5+</strong><span data-i18n="stat_industries">industries</span></div>
+      <div class="stat glass fx reveal" data-tilt="8"><strong>5</strong><span data-i18n="stat_languages">working languages</span></div>
     </div>
   </div>
 </section>
@@ -247,59 +105,59 @@
       <p data-i18n="svc_sub">Four areas, one team — with AI built in wherever it brings real value to your business.</p>
     </div>
     <div class="services">
-      <article class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg></div>
+      <article class="card glass fx reveal">
+        <div class="ico c-blue"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg></div>
         <h3 data-i18n="s1_t">Web & SaaS Development</h3>
-        <p data-i18n="s1_d">Corporate websites, web applications and SaaS platforms — from idea to launch — with smart AI features such as search, assistants and automation built in.</p>
+        <p data-i18n="s1_d"></p>
         <div class="tags"><span data-i18n="s1_g1">Websites</span><span data-i18n="s1_g2">Web apps</span><span>SaaS</span><span data-i18n="s1_g3">AI features</span></div>
       </article>
-      <article class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#F2551D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/><circle cx="12" cy="3" r="1"/></svg></div>
+      <article class="card glass fx reveal">
+        <div class="ico c-orange"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/><circle cx="12" cy="3" r="1"/></svg></div>
         <h3 data-i18n="s2_t">AI Agents & Automation</h3>
-        <p data-i18n="s2_d">Custom AI agents that take over routine work: processing documents, answering customers, preparing reports and connecting the tools your team already uses.</p>
-        <div class="tags"><span data-i18n="s2_g1">AI agents</span><span data-i18n="s2_g2">LLM integration</span><span data-i18n="s2_g3">Process automation</span></div>
+        <p data-i18n="s2_d"></p>
+        <div class="tags"><span data-i18n="s2_g1"></span><span data-i18n="s2_g2"></span><span data-i18n="s2_g3"></span></div>
       </article>
-      <article class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h7v5H4zM13 4h7v6h-7zM13 14h7v6h-7zM4 16h7v4H4z"/></svg></div>
+      <article class="card glass fx reveal">
+        <div class="ico c-violet"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h7v5H4zM13 4h7v6h-7zM13 14h7v6h-7zM4 16h7v4H4z"/></svg></div>
         <h3 data-i18n="s3_t">ERP & CRM Consulting</h3>
-        <p data-i18n="s3_d">Selecting, implementing and adapting ERP and CRM systems to the way your company actually works — plus integrations with the rest of your software.</p>
-        <div class="tags"><span data-i18n="s3_g1">System selection</span><span data-i18n="s3_g2">Implementation</span><span data-i18n="s3_g3">Integrations</span></div>
+        <p data-i18n="s3_d"></p>
+        <div class="tags"><span data-i18n="s3_g1"></span><span data-i18n="s3_g2"></span><span data-i18n="s3_g3"></span></div>
       </article>
-      <article class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#F2551D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div>
+      <article class="card glass fx reveal">
+        <div class="ico c-teal"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div>
         <h3 data-i18n="s4_t">Data & Analytics</h3>
-        <p data-i18n="s4_d">Turning scattered data into clear dashboards, reports and forecasts — so decisions are based on numbers, not guesswork.</p>
-        <div class="tags"><span data-i18n="s4_g1">Dashboards & BI</span><span data-i18n="s4_g2">Data pipelines</span><span data-i18n="s4_g3">Forecasting</span></div>
+        <p data-i18n="s4_d"></p>
+        <div class="tags"><span data-i18n="s4_g1"></span><span data-i18n="s4_g2"></span><span data-i18n="s4_g3"></span></div>
       </article>
     </div>
   </div>
 </section>
 
-<section id="why" class="why">
+<section id="why">
   <div class="wrap why-grid">
     <div>
-      <div class="sec-head reveal" style="margin-bottom:36px">
+      <div class="sec-head reveal" style="margin-bottom:32px">
         <div class="kicker" data-i18n="why_kicker">Why ArdSoft</div>
         <h2 data-i18n="why_title">We understand how business is done in your country</h2>
-        <p data-i18n="why_sub">A project in Madrid is not run the same way as one in Frankfurt or Luxembourg. We know the difference — and adapt to it.</p>
+        <p data-i18n="why_sub"></p>
       </div>
       <div class="points">
-        <div class="point reveal"><div class="num">01</div><div><h3 data-i18n="w1_t">Local mindset in six countries</h3><p data-i18n="w1_d">We adapt communication, documentation and pace to the way your team works and to local business expectations.</p></div></div>
-        <div class="point reveal"><div class="num">02</div><div><h3 data-i18n="w2_t">Real industry experience</h3><p data-i18n="w2_d">From construction sites to pharmaceutical labs and machine-tool plants: we learn your processes fast because we've seen similar ones.</p></div></div>
-        <div class="point reveal"><div class="num">03</div><div><h3 data-i18n="w3_t">Business first, technology second</h3><p data-i18n="w3_d">We start from your goals and budget, then choose the simplest technology that gets you there — and use AI only where it pays off.</p></div></div>
-        <div class="point reveal"><div class="num">04</div><div><h3 data-i18n="w4_t">We speak your language</h3><p data-i18n="w4_d">English, Spanish, French, German and Russian — no requirements lost in translation.</p></div></div>
+        <div class="point glass fx reveal" data-tilt="3"><div class="num">01</div><div><h3 data-i18n="w1_t"></h3><p data-i18n="w1_d"></p></div></div>
+        <div class="point glass fx reveal" data-tilt="3"><div class="num">02</div><div><h3 data-i18n="w2_t"></h3><p data-i18n="w2_d"></p></div></div>
+        <div class="point glass fx reveal" data-tilt="3"><div class="num">03</div><div><h3 data-i18n="w3_t"></h3><p data-i18n="w3_d"></p></div></div>
+        <div class="point glass fx reveal" data-tilt="3"><div class="num">04</div><div><h3 data-i18n="w4_t"></h3><p data-i18n="w4_d"></p></div></div>
       </div>
     </div>
-    <div class="panel reveal">
+    <div class="panel glass fx reveal" data-tilt="3">
       <h4 data-i18n="countries_label">Countries we've worked in</h4>
       <div class="list countries">
         <span data-i18n="c_es">Spain</span><span data-i18n="c_lu">Luxembourg</span><span data-i18n="c_fr">France</span><span data-i18n="c_de">Germany</span><span data-i18n="c_cy">Cyprus</span><span data-i18n="c_ru">Russia</span>
       </div>
       <h4 data-i18n="industries_label">Industries</h4>
       <div class="list">
-        <span data-i18n="i_1">Construction</span><span data-i18n="i_2">Trading & distribution</span><span data-i18n="i_3">Pharmaceuticals</span><span data-i18n="i_4">Machine-tool manufacturing</span><span data-i18n="i_5">Education</span><span data-i18n="i_6">and more</span>
+        <span data-i18n="i_1"></span><span data-i18n="i_2"></span><span data-i18n="i_3"></span><span data-i18n="i_4"></span><span data-i18n="i_5"></span><span data-i18n="i_6"></span>
       </div>
-      <p class="quote" data-i18n="why_quote">“One partner for technology, one team that understands both your business and your culture.”</p>
+      <p class="quote" data-i18n="why_quote"></p>
     </div>
   </div>
 </section>
@@ -309,37 +167,36 @@
     <div class="sec-head reveal">
       <div class="kicker" data-i18n="proc_kicker">Process</div>
       <h2 data-i18n="proc_title">How we work</h2>
-      <p data-i18n="proc_sub">Transparent steps, regular demos and no surprises in the budget.</p>
+      <p data-i18n="proc_sub"></p>
     </div>
     <div class="steps">
-      <div class="step reveal"><h3 data-i18n="p1_t">Discovery</h3><p data-i18n="p1_d">A free call to understand your goals, constraints and priorities.</p></div>
-      <div class="step reveal"><h3 data-i18n="p2_t">Proposal</h3><p data-i18n="p2_d">A clear scope, timeline and budget — fixed or flexible.</p></div>
-      <div class="step reveal"><h3 data-i18n="p3_t">Delivery</h3><p data-i18n="p3_d">Short iterations with regular demos, so you always see progress.</p></div>
-      <div class="step reveal"><h3 data-i18n="p4_t">Support</h3><p data-i18n="p4_d">Launch, team training and ongoing improvements after go-live.</p></div>
+      <div class="step glass fx reveal"><div class="n">01</div><div class="bar"></div><h3 data-i18n="p1_t"></h3><p data-i18n="p1_d"></p></div>
+      <div class="step glass fx reveal"><div class="n">02</div><div class="bar"></div><h3 data-i18n="p2_t"></h3><p data-i18n="p2_d"></p></div>
+      <div class="step glass fx reveal"><div class="n">03</div><div class="bar"></div><h3 data-i18n="p3_t"></h3><p data-i18n="p3_d"></p></div>
+      <div class="step glass fx reveal"><div class="n">04</div><div class="bar"></div><h3 data-i18n="p4_t"></h3><p data-i18n="p4_d"></p></div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact">
   <div class="wrap contact-grid">
     <div>
-      <div class="sec-head reveal" style="margin-bottom:28px">
+      <div class="sec-head reveal" style="margin-bottom:26px">
         <div class="kicker" data-i18n="ct_kicker">Contact</div>
         <h2 data-i18n="ct_title">Let's talk about your project</h2>
-        <p data-i18n="ct_sub">Tell us briefly what you need — we'll get back to you shortly to arrange a free consultation.</p>
+        <p data-i18n="ct_sub"></p>
       </div>
-      <div class="info reveal">
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span><small data-i18n="ct_office">Office</small><span data-i18n="ct_city">Barcelona, Spain</span></span></div>
-        <a href="https://www.linkedin.com/company/109558222/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span><small>LinkedIn</small><span data-i18n="ct_li">Follow ArdSoft Solutions</span></span></a>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span><small data-i18n="ct_langs">Languages</small>EN · ES · FR · DE · RU</span></div>
+      <div class="info">
+        <div class="item glass fx reveal" data-tilt="4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span><small data-i18n="ct_office">Office</small><span data-i18n="ct_city">Barcelona, Spain</span></span></div>
+        <a class="item glass fx reveal" data-tilt="4" href="https://www.linkedin.com/company/109558222/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span><small>LinkedIn</small><span data-i18n="ct_li">Follow ArdSoft Solutions</span></span></a>
+        <div class="item glass fx reveal" data-tilt="4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span><small data-i18n="ct_langs">Languages</small>EN · ES · FR · DE · RU</span></div>
       </div>
     </div>
 
-    <form id="form" class="reveal" novalidate>
+    <form id="form" class="glass reveal" novalidate>
       <input type="hidden" name="access_key" value="e06afb03-5587-46ee-8298-7922a773f8c6">
-      <input type="hidden" name="subject" value="New request from the ArdSoft website">
       <input type="hidden" name="from_name" value="ArdSoft website">
-      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="row">
         <div class="field"><label for="f-name" data-i18n="f_name">Name</label><input id="f-name" name="name" required autocomplete="name"></div>
         <div class="field"><label for="f-email" data-i18n="f_email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
@@ -357,9 +214,10 @@
         </div>
       </div>
       <div class="field"><label for="f-msg" data-i18n="f_msg">Tell us about your project</label><textarea id="f-msg" name="message" required></textarea></div>
-      <label class="consent"><input type="checkbox" id="f-consent" required><span data-i18n="f_consent">I agree that my data will be used only to respond to my request.</span></label>
+      <label class="consent"><input type="checkbox" id="f-consent" required><span data-i18n-html="f_consent_html"></span></label>
       <button class="btn btn-primary" type="submit" id="f-submit" data-i18n="f_submit">Send request</button>
       <div class="status" id="f-status" role="status" aria-live="polite"></div>
+      <p class="legal-info" data-i18n-html="f_info_html"></p>
     </form>
   </div>
 </section>
@@ -367,212 +225,17 @@
 
 <footer>
   <div class="wrap">
-    <a href="#" class="brand"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mark"/></svg>ArdSoft Solutions</a>
+    <a href="#" class="brand"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#mark"/></svg><span class="wm">ArdSoft Solutions</span></a>
+    <nav class="flinks">
+      <a href="legal.html#legal" data-i18n="ft_legal">Legal notice</a>
+      <a href="legal.html#privacy" data-i18n="ft_privacy">Privacy policy</a>
+      <a href="legal.html#cookies" data-i18n="ft_cookies">Cookie policy</a>
+    </nav>
     <span>© <span id="year">2026</span> ArdSoft Solutions · <span data-i18n="ft_rights">Barcelona, Spain</span></span>
   </div>
 </footer>
 
-<script>
-const I18N = {
-en:{
- nav_services:"Services",nav_why:"Why us",nav_process:"Process",nav_contact:"Contact",nav_cta:"Get in touch",
- hero_eyebrow:"Barcelona · Working across Europe",hero_title_1:"Software and AI that speak",hero_title_2:"your business language",
- hero_lead:"We build websites, SaaS products, AI agents and data solutions — and help you get the most out of your ERP and CRM. Five years of projects for companies in six European countries.",
- hero_cta1:"Discuss your project",hero_cta2:"Our services",
- stat_years:"years in Europe",stat_countries:"countries",stat_industries:"industries",stat_languages:"working languages",
- svc_kicker:"Services",svc_title:"What we do",svc_sub:"Four areas, one team — with AI built in wherever it brings real value to your business.",
- s1_t:"Web & SaaS Development",s1_d:"Corporate websites, web applications and SaaS platforms — from idea to launch — with smart AI features such as search, assistants and automation built in.",s1_g1:"Websites",s1_g2:"Web apps",s1_g3:"AI features",
- s2_t:"AI Agents & Automation",s2_d:"Custom AI agents that take over routine work: processing documents, answering customers, preparing reports and connecting the tools your team already uses.",s2_g1:"AI agents",s2_g2:"LLM integration",s2_g3:"Process automation",
- s3_t:"ERP & CRM Consulting",s3_d:"Selecting, implementing and adapting ERP and CRM systems to the way your company actually works — plus integrations with the rest of your software.",s3_g1:"System selection",s3_g2:"Implementation",s3_g3:"Integrations",
- s4_t:"Data & Analytics",s4_d:"Turning scattered data into clear dashboards, reports and forecasts — so decisions are based on numbers, not guesswork.",s4_g1:"Dashboards & BI",s4_g2:"Data pipelines",s4_g3:"Forecasting",
- why_kicker:"Why ArdSoft",why_title:"We understand how business is done in your country",why_sub:"A project in Madrid is not run the same way as one in Frankfurt or Luxembourg. We know the difference — and adapt to it.",
- w1_t:"Local mindset in six countries",w1_d:"We adapt communication, documentation and pace to the way your team works and to local business expectations.",
- w2_t:"Real industry experience",w2_d:"From construction sites to pharmaceutical labs and machine-tool plants: we learn your processes fast because we've seen similar ones.",
- w3_t:"Business first, technology second",w3_d:"We start from your goals and budget, then choose the simplest technology that gets you there — and use AI only where it pays off.",
- w4_t:"We speak your language",w4_d:"English, Spanish, French, German and Russian — no requirements lost in translation.",
- countries_label:"Countries we've worked in",c_es:"Spain",c_lu:"Luxembourg",c_fr:"France",c_de:"Germany",c_cy:"Cyprus",c_ru:"Russia",
- industries_label:"Industries",i_1:"Construction",i_2:"Trading & distribution",i_3:"Pharmaceuticals",i_4:"Machine-tool manufacturing",i_5:"Education",i_6:"and more",
- why_quote:"“One technology partner — one team that understands both your business and your culture.”",
- proc_kicker:"Process",proc_title:"How we work",proc_sub:"Transparent steps, regular demos and no surprises in the budget.",
- p1_t:"Discovery",p1_d:"A free call to understand your goals, constraints and priorities.",p2_t:"Proposal",p2_d:"A clear scope, timeline and budget — fixed or flexible.",
- p3_t:"Delivery",p3_d:"Short iterations with regular demos, so you always see progress.",p4_t:"Support",p4_d:"Launch, team training and ongoing improvements after go-live.",
- ct_kicker:"Contact",ct_title:"Let's talk about your project",ct_sub:"Tell us briefly what you need — we'll get back to you shortly to arrange a free consultation.",
- ct_office:"Office",ct_city:"Barcelona, Spain",ct_li:"Follow ArdSoft Solutions",ct_langs:"Languages",
- f_name:"Name",f_email:"Email",f_company:"Company (optional)",f_service:"Area of interest",f_unsure:"Not sure yet",f_msg:"Tell us about your project",
- f_consent:"I agree that my data will be used only to respond to my request.",f_submit:"Send request",
- f_sending:"Sending…",f_ok:"Thank you! Your request has been sent — we'll be in touch soon.",f_err:"Something went wrong. Please try again or contact us on LinkedIn.",f_invalid:"Please fill in your name, a valid email, a message and accept the consent.",
- ft_rights:"Barcelona, Spain"
-},
-es:{
- nav_services:"Servicios",nav_why:"Por qué nosotros",nav_process:"Proceso",nav_contact:"Contacto",nav_cta:"Contáctanos",
- hero_eyebrow:"Barcelona · Trabajamos en toda Europa",hero_title_1:"Software e IA que hablan",hero_title_2:"el idioma de tu negocio",
- hero_lead:"Desarrollamos webs, productos SaaS, agentes de IA y soluciones de datos, y te ayudamos a sacar el máximo partido a tu ERP y CRM. Cinco años de proyectos para empresas de seis países europeos.",
- hero_cta1:"Cuéntanos tu proyecto",hero_cta2:"Nuestros servicios",
- stat_years:"años en Europa",stat_countries:"países",stat_industries:"sectores",stat_languages:"idiomas de trabajo",
- svc_kicker:"Servicios",svc_title:"Qué hacemos",svc_sub:"Cuatro áreas, un solo equipo, con IA integrada allí donde aporta valor real a tu negocio.",
- s1_t:"Desarrollo Web y SaaS",s1_d:"Webs corporativas, aplicaciones web y plataformas SaaS, de la idea al lanzamiento, con funciones de IA integradas como búsqueda inteligente, asistentes y automatización.",s1_g1:"Webs",s1_g2:"Aplicaciones web",s1_g3:"Funciones de IA",
- s2_t:"Agentes de IA y Automatización",s2_d:"Agentes de IA a medida que se encargan del trabajo rutinario: procesar documentos, atender a clientes, preparar informes y conectar las herramientas que ya usa tu equipo.",s2_g1:"Agentes de IA",s2_g2:"Integración de LLM",s2_g3:"Automatización de procesos",
- s3_t:"Consultoría ERP y CRM",s3_d:"Selección, implantación y adaptación de sistemas ERP y CRM a la forma real de trabajar de tu empresa, además de integraciones con el resto de tu software.",s3_g1:"Selección de sistema",s3_g2:"Implantación",s3_g3:"Integraciones",
- s4_t:"Datos y Analítica",s4_d:"Convertimos datos dispersos en cuadros de mando, informes y previsiones claras, para decidir con números y no por intuición.",s4_g1:"Dashboards y BI",s4_g2:"Pipelines de datos",s4_g3:"Previsiones",
- why_kicker:"Por qué ArdSoft",why_title:"Entendemos cómo se hacen negocios en tu país",why_sub:"Un proyecto en Madrid no se gestiona igual que uno en Fráncfort o Luxemburgo. Conocemos la diferencia y nos adaptamos.",
- w1_t:"Mentalidad local en seis países",w1_d:"Adaptamos la comunicación, la documentación y el ritmo a la forma de trabajar de tu equipo y a las expectativas locales.",
- w2_t:"Experiencia real en tu sector",w2_d:"De obras de construcción a laboratorios farmacéuticos y fábricas de máquinas-herramienta: entendemos tus procesos rápido porque ya hemos visto otros similares.",
- w3_t:"Primero el negocio, después la tecnología",w3_d:"Partimos de tus objetivos y presupuesto y elegimos la tecnología más sencilla que te lleve allí; usamos IA solo donde es rentable.",
- w4_t:"Hablamos tu idioma",w4_d:"Inglés, español, francés, alemán y ruso: ningún requisito se pierde en la traducción.",
- countries_label:"Países en los que hemos trabajado",c_es:"España",c_lu:"Luxemburgo",c_fr:"Francia",c_de:"Alemania",c_cy:"Chipre",c_ru:"Rusia",
- industries_label:"Sectores",i_1:"Construcción",i_2:"Comercio y distribución",i_3:"Farmacéutica",i_4:"Fabricación de máquinas-herramienta",i_5:"Educación",i_6:"y más",
- why_quote:"“Un solo socio tecnológico: un equipo que entiende tu negocio y tu cultura.”",
- proc_kicker:"Proceso",proc_title:"Cómo trabajamos",proc_sub:"Pasos transparentes, demos periódicas y sin sorpresas en el presupuesto.",
- p1_t:"Análisis",p1_d:"Una llamada gratuita para entender tus objetivos, limitaciones y prioridades.",p2_t:"Propuesta",p2_d:"Alcance, plazos y presupuesto claros, cerrado o flexible.",
- p3_t:"Desarrollo",p3_d:"Iteraciones cortas con demos periódicas para que siempre veas el avance.",p4_t:"Soporte",p4_d:"Lanzamiento, formación del equipo y mejora continua tras la puesta en marcha.",
- ct_kicker:"Contacto",ct_title:"Hablemos de tu proyecto",ct_sub:"Cuéntanos brevemente qué necesitas y te responderemos pronto para concertar una consulta gratuita.",
- ct_office:"Oficina",ct_city:"Barcelona, España",ct_li:"Sigue a ArdSoft Solutions",ct_langs:"Idiomas",
- f_name:"Nombre",f_email:"Email",f_company:"Empresa (opcional)",f_service:"Área de interés",f_unsure:"Aún no lo sé",f_msg:"Cuéntanos sobre tu proyecto",
- f_consent:"Acepto que mis datos se utilicen únicamente para responder a mi solicitud.",f_submit:"Enviar solicitud",
- f_sending:"Enviando…",f_ok:"¡Gracias! Tu solicitud se ha enviado. Te contactaremos pronto.",f_err:"Algo ha fallado. Inténtalo de nuevo o escríbenos por LinkedIn.",f_invalid:"Indica tu nombre, un email válido y un mensaje, y acepta el consentimiento.",
- ft_rights:"Barcelona, España"
-},
-fr:{
- nav_services:"Services",nav_why:"Pourquoi nous",nav_process:"Méthode",nav_contact:"Contact",nav_cta:"Nous contacter",
- hero_eyebrow:"Barcelone · Partout en Europe",hero_title_1:"Des logiciels et de l'IA qui parlent",hero_title_2:"le langage de votre entreprise",
- hero_lead:"Nous créons des sites web, des produits SaaS, des agents IA et des solutions data, et vous aidons à tirer le meilleur de votre ERP et de votre CRM. Cinq ans de projets pour des entreprises dans six pays européens.",
- hero_cta1:"Parlons de votre projet",hero_cta2:"Nos services",
- stat_years:"ans en Europe",stat_countries:"pays",stat_industries:"secteurs",stat_languages:"langues de travail",
- svc_kicker:"Services",svc_title:"Ce que nous faisons",svc_sub:"Quatre domaines, une seule équipe, avec l'IA intégrée là où elle apporte une vraie valeur.",
- s1_t:"Développement Web & SaaS",s1_d:"Sites corporate, applications web et plateformes SaaS, de l'idée au lancement, avec des fonctions d'IA intégrées : recherche intelligente, assistants, automatisation.",s1_g1:"Sites web",s1_g2:"Applications web",s1_g3:"Fonctions IA",
- s2_t:"Agents IA & Automatisation",s2_d:"Des agents IA sur mesure qui prennent en charge les tâches répétitives : traitement de documents, réponses aux clients, rapports et connexion des outils de votre équipe.",s2_g1:"Agents IA",s2_g2:"Intégration LLM",s2_g3:"Automatisation des processus",
- s3_t:"Conseil ERP & CRM",s3_d:"Choix, déploiement et adaptation de systèmes ERP et CRM à la façon dont votre entreprise travaille réellement, plus les intégrations avec vos autres logiciels.",s3_g1:"Choix du système",s3_g2:"Déploiement",s3_g3:"Intégrations",
- s4_t:"Data & Analytique",s4_d:"Transformer des données dispersées en tableaux de bord, rapports et prévisions clairs, pour décider sur des chiffres et non à l'intuition.",s4_g1:"Tableaux de bord & BI",s4_g2:"Pipelines de données",s4_g3:"Prévisions",
- why_kicker:"Pourquoi ArdSoft",why_title:"Nous comprenons comment on fait des affaires dans votre pays",why_sub:"Un projet à Madrid ne se mène pas comme à Francfort ou à Luxembourg. Nous connaissons la différence et nous nous adaptons.",
- w1_t:"Une culture locale dans six pays",w1_d:"Nous adaptons la communication, la documentation et le rythme à votre équipe et aux attentes locales.",
- w2_t:"Une vraie expérience sectorielle",w2_d:"Des chantiers de construction aux laboratoires pharmaceutiques et aux usines de machines-outils : nous comprenons vite vos processus car nous en avons vu de similaires.",
- w3_t:"Le métier d'abord, la technologie ensuite",w3_d:"Nous partons de vos objectifs et de votre budget, puis choisissons la technologie la plus simple pour y arriver, avec l'IA seulement là où elle est rentable.",
- w4_t:"Nous parlons votre langue",w4_d:"Anglais, espagnol, français, allemand et russe : aucune exigence perdue dans la traduction.",
- countries_label:"Pays où nous avons travaillé",c_es:"Espagne",c_lu:"Luxembourg",c_fr:"France",c_de:"Allemagne",c_cy:"Chypre",c_ru:"Russie",
- industries_label:"Secteurs",i_1:"Construction",i_2:"Négoce & distribution",i_3:"Pharmaceutique",i_4:"Fabrication de machines-outils",i_5:"Éducation",i_6:"et plus",
- why_quote:"« Un seul partenaire technologique : une équipe qui comprend votre métier et votre culture. »",
- proc_kicker:"Méthode",proc_title:"Notre façon de travailler",proc_sub:"Des étapes transparentes, des démos régulières et pas de surprise sur le budget.",
- p1_t:"Découverte",p1_d:"Un appel gratuit pour comprendre vos objectifs, contraintes et priorités.",p2_t:"Proposition",p2_d:"Un périmètre, un planning et un budget clairs, forfaitaire ou flexible.",
- p3_t:"Réalisation",p3_d:"Des itérations courtes avec des démos régulières : vous voyez toujours l'avancement.",p4_t:"Support",p4_d:"Mise en production, formation de l'équipe et améliorations continues.",
- ct_kicker:"Contact",ct_title:"Parlons de votre projet",ct_sub:"Décrivez brièvement votre besoin : nous vous répondrons rapidement pour organiser une consultation gratuite.",
- ct_office:"Bureau",ct_city:"Barcelone, Espagne",ct_li:"Suivez ArdSoft Solutions",ct_langs:"Langues",
- f_name:"Nom",f_email:"Email",f_company:"Entreprise (facultatif)",f_service:"Domaine d'intérêt",f_unsure:"Je ne sais pas encore",f_msg:"Parlez-nous de votre projet",
- f_consent:"J'accepte que mes données soient utilisées uniquement pour répondre à ma demande.",f_submit:"Envoyer la demande",
- f_sending:"Envoi…",f_ok:"Merci ! Votre demande a bien été envoyée, nous revenons vers vous rapidement.",f_err:"Une erreur s'est produite. Réessayez ou contactez-nous sur LinkedIn.",f_invalid:"Indiquez votre nom, un email valide et un message, et acceptez le consentement.",
- ft_rights:"Barcelone, Espagne"
-},
-de:{
- nav_services:"Leistungen",nav_why:"Warum wir",nav_process:"Ablauf",nav_contact:"Kontakt",nav_cta:"Kontakt aufnehmen",
- hero_eyebrow:"Barcelona · In ganz Europa tätig",hero_title_1:"Software und KI, die",hero_title_2:"die Sprache Ihres Unternehmens sprechen",
- hero_lead:"Wir entwickeln Websites, SaaS-Produkte, KI-Agenten und Datenlösungen und helfen Ihnen, das Beste aus Ihrem ERP und CRM herauszuholen. Fünf Jahre Projekterfahrung mit Unternehmen in sechs europäischen Ländern.",
- hero_cta1:"Projekt besprechen",hero_cta2:"Unsere Leistungen",
- stat_years:"Jahre in Europa",stat_countries:"Länder",stat_industries:"Branchen",stat_languages:"Arbeitssprachen",
- svc_kicker:"Leistungen",svc_title:"Was wir tun",svc_sub:"Vier Bereiche, ein Team – mit KI überall dort, wo sie echten Mehrwert bringt.",
- s1_t:"Web- & SaaS-Entwicklung",s1_d:"Unternehmenswebsites, Webanwendungen und SaaS-Plattformen – von der Idee bis zum Launch – mit integrierten KI-Funktionen wie intelligenter Suche, Assistenten und Automatisierung.",s1_g1:"Websites",s1_g2:"Web-Apps",s1_g3:"KI-Funktionen",
- s2_t:"KI-Agenten & Automatisierung",s2_d:"Individuelle KI-Agenten, die Routinearbeit übernehmen: Dokumente verarbeiten, Kundenanfragen beantworten, Berichte erstellen und Ihre Tools verbinden.",s2_g1:"KI-Agenten",s2_g2:"LLM-Integration",s2_g3:"Prozessautomatisierung",
- s3_t:"ERP- & CRM-Beratung",s3_d:"Auswahl, Einführung und Anpassung von ERP- und CRM-Systemen an die tatsächlichen Abläufe Ihres Unternehmens – inklusive Integration mit Ihrer übrigen Software.",s3_g1:"Systemauswahl",s3_g2:"Einführung",s3_g3:"Integrationen",
- s4_t:"Daten & Analytics",s4_d:"Aus verstreuten Daten werden klare Dashboards, Berichte und Prognosen – für Entscheidungen auf Basis von Zahlen statt Bauchgefühl.",s4_g1:"Dashboards & BI",s4_g2:"Datenpipelines",s4_g3:"Prognosen",
- why_kicker:"Warum ArdSoft",why_title:"Wir verstehen, wie in Ihrem Land Geschäfte gemacht werden",why_sub:"Ein Projekt in Madrid läuft anders als eines in Frankfurt oder Luxemburg. Wir kennen den Unterschied – und passen uns an.",
- w1_t:"Lokales Verständnis in sechs Ländern",w1_d:"Wir passen Kommunikation, Dokumentation und Tempo an die Arbeitsweise Ihres Teams und an lokale Erwartungen an.",
- w2_t:"Echte Branchenerfahrung",w2_d:"Von Baustellen über Pharmalabore bis zu Werkzeugmaschinenwerken: Wir verstehen Ihre Prozesse schnell, weil wir ähnliche bereits kennen.",
- w3_t:"Erst das Geschäft, dann die Technik",w3_d:"Wir starten bei Ihren Zielen und Ihrem Budget und wählen die einfachste Technologie, die Sie dorthin bringt – KI nur dort, wo sie sich rechnet.",
- w4_t:"Wir sprechen Ihre Sprache",w4_d:"Englisch, Spanisch, Französisch, Deutsch und Russisch – keine Anforderung geht in der Übersetzung verloren.",
- countries_label:"Länder, in denen wir gearbeitet haben",c_es:"Spanien",c_lu:"Luxemburg",c_fr:"Frankreich",c_de:"Deutschland",c_cy:"Zypern",c_ru:"Russland",
- industries_label:"Branchen",i_1:"Bauwesen",i_2:"Handel & Vertrieb",i_3:"Pharma",i_4:"Werkzeugmaschinenbau",i_5:"Bildung",i_6:"und mehr",
- why_quote:"„Ein Technologiepartner – ein Team, das Ihr Geschäft und Ihre Kultur versteht.“",
- proc_kicker:"Ablauf",proc_title:"So arbeiten wir",proc_sub:"Transparente Schritte, regelmäßige Demos und keine Überraschungen beim Budget.",
- p1_t:"Analyse",p1_d:"Ein kostenloses Gespräch, um Ihre Ziele, Rahmenbedingungen und Prioritäten zu verstehen.",p2_t:"Angebot",p2_d:"Klarer Umfang, Zeitplan und Budget – fest oder flexibel.",
- p3_t:"Umsetzung",p3_d:"Kurze Iterationen mit regelmäßigen Demos – Sie sehen jederzeit den Fortschritt.",p4_t:"Support",p4_d:"Go-live, Schulung Ihres Teams und laufende Verbesserungen.",
- ct_kicker:"Kontakt",ct_title:"Lassen Sie uns über Ihr Projekt sprechen",ct_sub:"Beschreiben Sie kurz Ihr Anliegen – wir melden uns zeitnah für eine kostenlose Erstberatung.",
- ct_office:"Büro",ct_city:"Barcelona, Spanien",ct_li:"ArdSoft Solutions folgen",ct_langs:"Sprachen",
- f_name:"Name",f_email:"E-Mail",f_company:"Unternehmen (optional)",f_service:"Interessensbereich",f_unsure:"Noch unklar",f_msg:"Erzählen Sie uns von Ihrem Projekt",
- f_consent:"Ich bin einverstanden, dass meine Daten nur zur Beantwortung meiner Anfrage verwendet werden.",f_submit:"Anfrage senden",
- f_sending:"Wird gesendet…",f_ok:"Vielen Dank! Ihre Anfrage wurde gesendet – wir melden uns in Kürze.",f_err:"Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder kontaktieren Sie uns über LinkedIn.",f_invalid:"Bitte geben Sie Name, gültige E-Mail und Nachricht an und stimmen Sie der Einwilligung zu.",
- ft_rights:"Barcelona, Spanien"
-},
-ru:{
- nav_services:"Услуги",nav_why:"Почему мы",nav_process:"Как работаем",nav_contact:"Контакты",nav_cta:"Связаться",
- hero_eyebrow:"Барселона · Работаем по всей Европе",hero_title_1:"Софт и ИИ, которые говорят",hero_title_2:"на языке вашего бизнеса",
- hero_lead:"Разрабатываем сайты, SaaS-продукты, ИИ-агентов и решения для работы с данными, помогаем получить максимум от ERP и CRM. Пять лет проектов для компаний из шести европейских стран.",
- hero_cta1:"Обсудить проект",hero_cta2:"Наши услуги",
- stat_years:"лет в Европе",stat_countries:"стран",stat_industries:"отраслей",stat_languages:"рабочих языков",
- svc_kicker:"Услуги",svc_title:"Что мы делаем",svc_sub:"Четыре направления, одна команда. ИИ встраиваем там, где он приносит бизнесу реальную пользу.",
- s1_t:"Веб- и SaaS-разработка",s1_d:"Корпоративные сайты, веб-приложения и SaaS-платформы от идеи до запуска со встроенными ИИ-функциями: умный поиск, ассистенты, автоматизация.",s1_g1:"Сайты",s1_g2:"Веб-приложения",s1_g3:"ИИ-функции",
- s2_t:"ИИ-агенты и автоматизация",s2_d:"ИИ-агенты под ваши задачи берут на себя рутину: обрабатывают документы, отвечают клиентам, готовят отчёты и связывают инструменты, которыми уже пользуется команда.",s2_g1:"ИИ-агенты",s2_g2:"Интеграция LLM",s2_g3:"Автоматизация процессов",
- s3_t:"Консалтинг по ERP и CRM",s3_d:"Выбор, внедрение и настройка ERP и CRM под реальные процессы вашей компании, а также интеграция с остальными системами.",s3_g1:"Выбор системы",s3_g2:"Внедрение",s3_g3:"Интеграции",
- s4_t:"Данные и аналитика",s4_d:"Превращаем разрозненные данные в понятные дашборды, отчёты и прогнозы, чтобы решения принимались на основе цифр, а не догадок.",s4_g1:"Дашборды и BI",s4_g2:"Пайплайны данных",s4_g3:"Прогнозирование",
- why_kicker:"Почему ArdSoft",why_title:"Мы понимаем, как ведут бизнес в вашей стране",why_sub:"Проект в Мадриде ведётся не так, как во Франкфурте или Люксембурге. Мы знаем разницу и подстраиваемся под неё.",
- w1_t:"Местный менталитет в шести странах",w1_d:"Подстраиваем коммуникацию, документацию и темп работы под вашу команду и местные деловые ожидания.",
- w2_t:"Реальный отраслевой опыт",w2_d:"От строительных объектов до фармацевтических лабораторий и станкостроительных заводов. Быстро разбираемся в ваших процессах, потому что уже видели похожие.",
- w3_t:"Сначала бизнес, потом технологии",w3_d:"Отталкиваемся от ваших целей и бюджета и выбираем самое простое решение, которое к ним приведёт. ИИ применяем только там, где он окупается.",
- w4_t:"Говорим на вашем языке",w4_d:"Английский, испанский, французский, немецкий и русский. Требования не теряются при переводе.",
- countries_label:"Страны, где мы работали",c_es:"Испания",c_lu:"Люксембург",c_fr:"Франция",c_de:"Германия",c_cy:"Кипр",c_ru:"Россия",
- industries_label:"Отрасли",i_1:"Строительство",i_2:"Торговля и дистрибуция",i_3:"Фармацевтика",i_4:"Станкостроение",i_5:"Образование",i_6:"и другие",
- why_quote:"«Один технологический партнёр — одна команда, которая понимает и ваш бизнес, и вашу культуру».",
- proc_kicker:"Процесс",proc_title:"Как мы работаем",proc_sub:"Прозрачные этапы, регулярные демо и никаких сюрпризов в бюджете.",
- p1_t:"Знакомство",p1_d:"Бесплатный созвон, чтобы понять ваши цели, ограничения и приоритеты.",p2_t:"Предложение",p2_d:"Понятный объём работ, сроки и бюджет: фиксированный или гибкий.",
- p3_t:"Разработка",p3_d:"Короткие итерации и регулярные демо, чтобы вы всегда видели прогресс.",p4_t:"Поддержка",p4_d:"Запуск, обучение команды и дальнейшее развитие после внедрения.",
- ct_kicker:"Контакты",ct_title:"Давайте обсудим ваш проект",ct_sub:"Кратко опишите задачу, и мы скоро свяжемся с вами, чтобы договориться о бесплатной консультации.",
- ct_office:"Офис",ct_city:"Барселона, Испания",ct_li:"ArdSoft Solutions в LinkedIn",ct_langs:"Языки",
- f_name:"Имя",f_email:"Email",f_company:"Компания (необязательно)",f_service:"Направление",f_unsure:"Пока не знаю",f_msg:"Расскажите о проекте",
- f_consent:"Я согласен(на), что мои данные будут использованы только для ответа на заявку.",f_submit:"Отправить заявку",
- f_sending:"Отправка…",f_ok:"Спасибо! Заявка отправлена, мы скоро свяжемся с вами.",f_err:"Что-то пошло не так. Попробуйте ещё раз или напишите нам в LinkedIn.",f_invalid:"Укажите имя, корректный email и сообщение, а также отметьте согласие.",
- ft_rights:"Барселона, Испания"
-}};
-
-const LANGS = Object.keys(I18N);
-let lang = "en";
-function store(k,v){try{if(v!==undefined)localStorage.setItem(k,v);return localStorage.getItem(k)}catch(e){return null}}
-function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.en[k]||""}
-function setLang(l){
-  if(!I18N[l]) l="en";
-  lang=l; document.documentElement.lang=l;
-  document.querySelectorAll("[data-i18n]").forEach(el=>{const v=t(el.dataset.i18n); if(v) el.textContent=v;});
-  document.querySelectorAll("#langs button").forEach(b=>b.classList.toggle("active",b.dataset.lang===l));
-  store("ardsoft_lang",l);
-}
-(function init(){
-  const saved=store("ardsoft_lang");
-  const fromUrl=new URLSearchParams(location.search).get("lang");
-  const browser=(navigator.language||"en").slice(0,2).toLowerCase();
-  setLang(LANGS.includes(fromUrl)?fromUrl:LANGS.includes(saved)?saved:LANGS.includes(browser)?browser:"en");
-})();
-document.getElementById("langs").addEventListener("click",e=>{const b=e.target.closest("button");if(b)setLang(b.dataset.lang)});
-
-// Header + mobile menu
-const header=document.querySelector("header"),menu=document.getElementById("menu");
-const onScroll=()=>header.classList.toggle("scrolled",scrollY>20);addEventListener("scroll",onScroll,{passive:true});onScroll();
-document.getElementById("burger").addEventListener("click",()=>{menu.classList.toggle("open");header.classList.toggle("menu-open")});
-menu.addEventListener("click",e=>{if(e.target.tagName==="A"){menu.classList.remove("open");header.classList.remove("menu-open")}});
-
-// Reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}}),{threshold:.12});
-document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
-
-document.getElementById("year").textContent=new Date().getFullYear();
-
-// Form → Web3Forms → Gmail
-const form=document.getElementById("form"),statusEl=document.getElementById("f-status"),submitBtn=document.getElementById("f-submit");
-form.addEventListener("submit",async e=>{
-  e.preventDefault();
-  statusEl.className="status";
-  const el=form.elements,name=el["name"].value.trim(),email=el["email"].value.trim(),msg=el["message"].value.trim();
-  if(!name||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!msg||!document.getElementById("f-consent").checked){
-    statusEl.classList.add("err");statusEl.textContent=t("f_invalid");return;
-  }
-  const data=Object.fromEntries(new FormData(form));
-  data.language=lang.toUpperCase();
-  data.subject="New request from the ArdSoft website — "+name+(data.company?" ("+data.company+")":"");
-  data.replyto=email;
-  submitBtn.disabled=true;submitBtn.textContent=t("f_sending");
-  try{
-    const r=await fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)});
-    const j=await r.json();
-    if(j.success){statusEl.classList.add("ok");statusEl.textContent=t("f_ok");form.reset();}
-    else throw new Error(j.message);
-  }catch(err){statusEl.classList.add("err");statusEl.textContent=t("f_err");}
-  finally{submitBtn.disabled=false;submitBtn.textContent=t("f_submit");}
-});
-</script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
