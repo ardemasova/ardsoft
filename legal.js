@@ -6,7 +6,7 @@ upd: "Last updated: {updated}",
 legal: `<h2>Legal notice</h2><p class="upd">{UPD}</p>
 <h3>1. Website owner</h3>
 <p>In compliance with Article 10 of Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), the owner of the website <b>{domain}</b> is:</p>
-<dl><dt>Owner</dt><dd>{legalName} (trading as {brand})</dd><dt>Tax ID (NIF/CIF)</dt><dd>{taxId}</dd><dt>Address</dt><dd>{address}</dd><dt>E-mail</dt><dd>{email}</dd><dt>Registry details</dt><dd>{registry}</dd></dl>
+<dl><dt>Owner</dt><dd>{legalName} (trading as {brand})</dd><dt>Tax ID (NIF / NIE)</dt><dd>{taxId}</dd><dt>Address</dt><dd>{address}</dd><dt>E-mail</dt><dd>{email}</dd><dt>VAT number</dt><dd>{vat}</dd><dt>Status</dt><dd>Self-employed professional (autónomo) registered in Spain</dd></dl>
 <h3>2. Purpose</h3><p>This website provides information about the services of {brand} and allows visitors to contact us.</p>
 <h3>3. Terms of use</h3><p>By using this website you agree to use it lawfully and in good faith. We make reasonable efforts to keep the information accurate and the website available, but we do not guarantee the absence of errors or interruptions and are not liable for damages arising from the use of the website, except where the law provides otherwise. We may change the content of the website at any time.</p>
 <h3>4. Intellectual and industrial property</h3><p>All content of this website — texts, logo, graphics, design and source code — belongs to {legalName} or is used with permission. Reproduction, distribution or modification without prior written consent is prohibited.</p>
@@ -47,7 +47,7 @@ upd: "Última actualización: {updated}",
 legal: `<h2>Aviso legal</h2><p class="upd">{UPD}</p>
 <h3>1. Titular del sitio web</h3>
 <p>En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), el titular del sitio web <b>{domain}</b> es:</p>
-<dl><dt>Titular</dt><dd>{legalName} (nombre comercial {brand})</dd><dt>NIF/CIF</dt><dd>{taxId}</dd><dt>Domicilio</dt><dd>{address}</dd><dt>Correo electrónico</dt><dd>{email}</dd><dt>Datos registrales</dt><dd>{registry}</dd></dl>
+<dl><dt>Titular</dt><dd>{legalName} (nombre comercial {brand})</dd><dt>NIF (NIE)</dt><dd>{taxId}</dd><dt>Domicilio</dt><dd>{address}</dd><dt>Correo electrónico</dt><dd>{email}</dd><dt>NIF-IVA</dt><dd>{vat}</dd><dt>Forma jurídica</dt><dd>Trabajadora autónoma; no inscrita en el Registro Mercantil</dd></dl>
 <h3>2. Objeto</h3><p>Este sitio web ofrece información sobre los servicios de {brand} y permite a los visitantes ponerse en contacto con nosotros.</p>
 <h3>3. Condiciones de uso</h3><p>Al utilizar este sitio web te comprometes a hacerlo de forma lícita y de buena fe. Hacemos esfuerzos razonables para mantener la información actualizada y el sitio disponible, pero no garantizamos la ausencia de errores o interrupciones ni respondemos de los daños derivados de su uso, salvo en los casos previstos por la ley. Podemos modificar los contenidos en cualquier momento.</p>
 <h3>4. Propiedad intelectual e industrial</h3><p>Todos los contenidos del sitio — textos, logotipo, gráficos, diseño y código fuente — pertenecen a {legalName} o se utilizan con autorización. Queda prohibida su reproducción, distribución o modificación sin consentimiento previo por escrito.</p>
@@ -56,7 +56,7 @@ legal: `<h2>Aviso legal</h2><p class="upd">{UPD}</p>
 <h3>7. Versiones lingüísticas</h3><p>Esta página está disponible en varios idiomas por comodidad. En caso de discrepancia, prevalecerá la versión en español.</p>`,
 privacy: `<h2>Política de privacidad</h2><p class="upd">{UPD}</p>
 <h3>1. Responsable del tratamiento</h3>
-<dl><dt>Responsable</dt><dd>{legalName}</dd><dt>NIF/CIF</dt><dd>{taxId}</dd><dt>Domicilio</dt><dd>{address}</dd><dt>Correo electrónico</dt><dd>{email}</dd></dl>
+<dl><dt>Responsable</dt><dd>{legalName}</dd><dt>NIF (NIE)</dt><dd>{taxId}</dd><dt>Domicilio</dt><dd>{address}</dd><dt>Correo electrónico</dt><dd>{email}</dd></dl>
 <h3>2. Qué datos tratamos</h3><ul>
 <li><b>Formulario de contacto:</b> nombre, correo electrónico, empresa (opcional), área de interés, tu mensaje, el idioma de la página y el momento en que diste tu consentimiento.</li>
 <li><b>Datos técnicos:</b> al visitar el sitio, nuestro proveedor de alojamiento trata automáticamente tu dirección IP, tipo de navegador y fecha/hora de acceso en los registros del servidor para servir la web y mantenerla segura.</li></ul>
@@ -88,7 +88,7 @@ upd: "Dernière mise à jour : {updated}",
 legal: `<h2>Mentions légales</h2><p class="upd">{UPD}</p>
 <h3>1. Éditeur du site</h3>
 <p>Conformément à l'article 10 de la loi espagnole 34/2002 sur les services de la société de l'information et le commerce électronique (LSSI-CE), l'éditeur du site <b>{domain}</b> est :</p>
-<dl><dt>Éditeur</dt><dd>{legalName} (nom commercial {brand})</dd><dt>N° fiscal (NIF/CIF)</dt><dd>{taxId}</dd><dt>Adresse</dt><dd>{address}</dd><dt>E-mail</dt><dd>{email}</dd><dt>Immatriculation</dt><dd>{registry}</dd></dl>
+<dl><dt>Éditeur</dt><dd>{legalName} (nom commercial {brand})</dd><dt>N° fiscal (NIF / NIE)</dt><dd>{taxId}</dd><dt>Adresse</dt><dd>{address}</dd><dt>E-mail</dt><dd>{email}</dd><dt>N° TVA intracommunautaire</dt><dd>{vat}</dd><dt>Statut</dt><dd>Travailleuse indépendante (autónoma) établie en Espagne</dd></dl>
 <h3>2. Objet</h3><p>Ce site présente les services de {brand} et permet aux visiteurs de nous contacter.</p>
 <h3>3. Conditions d'utilisation</h3><p>En utilisant ce site, vous vous engagez à le faire de manière licite et de bonne foi. Nous faisons des efforts raisonnables pour que les informations soient exactes et le site disponible, sans garantir l'absence d'erreurs ou d'interruptions, et déclinons toute responsabilité pour les dommages liés à son utilisation, sauf disposition légale contraire. Le contenu peut être modifié à tout moment.</p>
 <h3>4. Propriété intellectuelle</h3><p>L'ensemble du contenu — textes, logo, graphismes, design et code source — appartient à {legalName} ou est utilisé avec autorisation. Toute reproduction, diffusion ou modification sans accord écrit préalable est interdite.</p>
@@ -129,7 +129,7 @@ upd: "Stand: {updated}",
 legal: `<h2>Impressum</h2><p class="upd">{UPD}</p>
 <h3>1. Anbieter der Website</h3>
 <p>Gemäß Artikel 10 des spanischen Gesetzes 34/2002 über Dienste der Informationsgesellschaft und den elektronischen Geschäftsverkehr (LSSI-CE) ist Anbieter der Website <b>{domain}</b>:</p>
-<dl><dt>Anbieter</dt><dd>{legalName} (Handelsname {brand})</dd><dt>Steuernummer (NIF/CIF)</dt><dd>{taxId}</dd><dt>Anschrift</dt><dd>{address}</dd><dt>E-Mail</dt><dd>{email}</dd><dt>Registerangaben</dt><dd>{registry}</dd></dl>
+<dl><dt>Anbieter</dt><dd>{legalName} (Handelsname {brand})</dd><dt>Steuernummer (NIF / NIE)</dt><dd>{taxId}</dd><dt>Anschrift</dt><dd>{address}</dd><dt>E-Mail</dt><dd>{email}</dd><dt>USt-IdNr.</dt><dd>{vat}</dd><dt>Rechtsform</dt><dd>Selbstständige (autónoma) mit Sitz in Spanien</dd></dl>
 <h3>2. Zweck</h3><p>Diese Website informiert über die Leistungen von {brand} und ermöglicht die Kontaktaufnahme.</p>
 <h3>3. Nutzungsbedingungen</h3><p>Mit der Nutzung dieser Website verpflichten Sie sich zu einer rechtmäßigen Nutzung nach Treu und Glauben. Wir bemühen uns um korrekte Inhalte und eine verfügbare Website, übernehmen jedoch keine Gewähr für Fehlerfreiheit oder ununterbrochene Verfügbarkeit und haften nicht für Schäden aus der Nutzung, soweit gesetzlich nicht anders vorgesehen. Inhalte können jederzeit geändert werden.</p>
 <h3>4. Urheber- und Markenrechte</h3><p>Alle Inhalte – Texte, Logo, Grafiken, Design und Quellcode – gehören {legalName} oder werden mit Erlaubnis verwendet. Vervielfältigung, Verbreitung oder Änderung ohne vorherige schriftliche Zustimmung ist untersagt.</p>
@@ -170,7 +170,7 @@ upd: "Последнее обновление: {updated}",
 legal: `<h2>Правовая информация</h2><p class="upd">{UPD}</p>
 <h3>1. Владелец сайта</h3>
 <p>В соответствии со статьёй 10 испанского Закона 34/2002 об услугах информационного общества и электронной торговле (LSSI-CE) владельцем сайта <b>{domain}</b> является:</p>
-<dl><dt>Владелец</dt><dd>{legalName} (торговое название {brand})</dd><dt>Налоговый номер (NIF/CIF)</dt><dd>{taxId}</dd><dt>Адрес</dt><dd>{address}</dd><dt>E-mail</dt><dd>{email}</dd><dt>Регистрационные данные</dt><dd>{registry}</dd></dl>
+<dl><dt>Владелец</dt><dd>{legalName} (торговое название {brand})</dd><dt>Налоговый номер (NIF / NIE)</dt><dd>{taxId}</dd><dt>Адрес</dt><dd>{address}</dd><dt>E-mail</dt><dd>{email}</dd><dt>Номер НДС (VAT)</dt><dd>{vat}</dd><dt>Статус</dt><dd>Индивидуальный предприниматель (autónoma), зарегистрирована в Испании</dd></dl>
 <h3>2. Назначение сайта</h3><p>Сайт содержит информацию об услугах {brand} и позволяет посетителям связаться с нами.</p>
 <h3>3. Условия использования</h3><p>Используя сайт, вы обязуетесь делать это законно и добросовестно. Мы стараемся поддерживать информацию актуальной, а сайт доступным, но не гарантируем отсутствие ошибок и перерывов в работе и не несём ответственности за ущерб от использования сайта, кроме случаев, предусмотренных законом. Содержание сайта может быть изменено в любое время.</p>
 <h3>4. Интеллектуальная собственность</h3><p>Все материалы сайта — тексты, логотип, графика, дизайн и исходный код — принадлежат {legalName} или используются с разрешения правообладателей. Воспроизведение, распространение или изменение без предварительного письменного согласия запрещены.</p>

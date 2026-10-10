@@ -149,13 +149,13 @@ ru:{
 /* ===== Company legal data — fill in once, used on all pages ===== */
 const COMPANY = {
   brand: "ArdSoft Solutions",
-  legalName: "[LEGAL NAME]",
-  taxId: "[NIF / CIF]",
-  address: "[Street, number, postcode] Barcelona, Spain",
-  email: "[CONTACT EMAIL]",
-  registry: "[Registro Mercantil de Barcelona, Tomo …, Folio …, Hoja …]",
+  legalName: "Anna Ardemasova",
+  taxId: "Y8668266V",
+  address: "Carrer del Bruc, 114, 08009 Barcelona, Spain",
+  email: "ardemasova.es@gmail.com",
+  vat: "ESY8668266V",
   domain: "ardsoftsolutions.com",
-  updated: "2026-10-09"
+  updated: "2026-10-10"
 };
 
 const EXTRA = {
