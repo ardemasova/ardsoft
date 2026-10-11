@@ -4,7 +4,7 @@
 @font-face{font-family:"Manrope";font-style:normal;font-display:swap;font-weight:200 800;src:url(fonts/manrope-cyrillic-wght-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 
 :root{
-  --bg:#0A1022; --text:#EAF0FA; --muted:#A3AEC6; --dim:#7D89A3;
+  --bg:#050C24; --text:#EAF0FA; --muted:#A3AEC6; --dim:#7D89A3;
   --glass:rgba(255,255,255,.045); --glass-2:rgba(255,255,255,.07); --stroke:rgba(255,255,255,.09);
   --blue:#2563EB; --sky:#38BDF8; --orange:#F2551D; --orange-2:#FF8A3D; --violet:#7C5CFF;
   --radius:22px; --max:1180px;
@@ -18,12 +18,12 @@ svg{display:block}
 .grad-text{background:linear-gradient(100deg,var(--sky) 0%,#6E8BFF 45%,var(--orange-2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* ---------- Continuous ambient background (no section seams) ---------- */
-.aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:radial-gradient(120% 90% at 50% 0%,#0E1730 0%,var(--bg) 60%)}
-.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.38;will-change:transform}
+.aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:radial-gradient(110% 80% at 50% -5%,#0F2E78 0%,#0A1C4F 30%,#061235 60%,#040A1F 100%)}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
 .aurora i:nth-child(1){width:46vw;height:46vw;left:-10vw;top:-12vw;background:#1D4ED8;animation:drift1 26s ease-in-out infinite}
-.aurora i:nth-child(2){width:38vw;height:38vw;right:-8vw;top:18vh;background:#0EA5E9;opacity:.22;animation:drift2 32s ease-in-out infinite}
-.aurora i:nth-child(3){width:34vw;height:34vw;left:30vw;bottom:-14vw;background:#F2551D;opacity:.14;animation:drift3 30s ease-in-out infinite}
-.aurora i:nth-child(4){width:28vw;height:28vw;left:-6vw;bottom:10vh;background:#7C5CFF;opacity:.16;animation:drift2 36s ease-in-out infinite reverse}
+.aurora i:nth-child(2){width:38vw;height:38vw;right:-8vw;top:18vh;background:#1E90FF;opacity:.32;animation:drift2 32s ease-in-out infinite}
+.aurora i:nth-child(3){width:34vw;height:34vw;left:30vw;bottom:-14vw;background:#F2551D;opacity:.18;animation:drift3 30s ease-in-out infinite}
+.aurora i:nth-child(4){width:28vw;height:28vw;left:-6vw;bottom:10vh;background:#3B5BFF;opacity:.28;animation:drift2 36s ease-in-out infinite reverse}
 /* Flowing net: three grids of different scale, each revealed by slowly drifting soft masks */
 .aurora .net{position:absolute;inset:-20%;--c:rgba(148,178,255,.075);background-image:linear-gradient(var(--c) 1px,transparent 1px),linear-gradient(90deg,var(--c) 1px,transparent 1px);background-size:var(--g) var(--g);-webkit-mask-image:var(--m);mask-image:var(--m);-webkit-mask-size:var(--ms);mask-size:var(--ms);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;animation:netmask var(--t) ease-in-out infinite alternate,netdrift calc(var(--t) * 1.6) linear infinite;will-change:mask-position,background-position}
 .aurora .n1{--g:28px;--t:38s;--c:rgba(148,178,255,.11);--ms:170% 170%;--m:radial-gradient(closest-side at 30% 35%,#000,transparent),radial-gradient(closest-side at 72% 68%,rgba(0,0,0,.7),transparent)}
@@ -40,7 +40,7 @@ header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,back
 header.scrolled,header.menu-open{background:rgba(10,16,34,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .nav{display:flex;align-items:center;gap:26px;height:76px}
 .brand{display:flex;align-items:center;gap:11px;font-family:"Manrope",sans-serif;font-weight:700;font-size:22px;letter-spacing:-.02em;line-height:1}
-.brand svg{width:42px;height:42px;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.brand svg{width:62px;height:44px;--orb:3.4;overflow:visible;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
 .brand:hover svg{transform:rotate(-8deg) scale(1.08)}
 .brand .wm small{display:block;font-size:11.5px;letter-spacing:.2em;color:var(--muted);margin-top:5px;text-transform:lowercase}
 .menu{display:flex;gap:28px;margin-left:auto;font-weight:600;font-size:15px;color:#C3CCDF}
@@ -98,8 +98,8 @@ header.scrolled,header.menu-open{background:rgba(10,16,34,.72);backdrop-filter:b
 .c-violet{--glow:rgba(124,92,255,.75);--chipbg:linear-gradient(135deg,#A78BFA,#6D4AFF)}
 .c-teal{--glow:rgba(45,212,191,.7);--chipbg:linear-gradient(135deg,#5EEAD4,#0EA5A4)}
 .planet{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 14px 3px var(--c)}
-.core{position:absolute;left:50%;top:50%;width:24%;height:24%;transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(37,99,235,.35),rgba(10,16,34,0) 70%)}
-.core svg{width:72%;height:72%;filter:drop-shadow(0 8px 30px rgba(37,99,235,.6));animation:breathe 5s ease-in-out infinite}
+.core{position:absolute;left:50%;top:50%;width:60%;height:60%;transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(37,99,235,.35),rgba(10,16,34,0) 70%)}
+.core svg{width:100%;height:72%;--orb:1.6;overflow:visible;filter:drop-shadow(0 8px 30px rgba(37,99,235,.5));animation:breathe 5s ease-in-out infinite}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes breathe{50%{transform:scale(1.06)}}
 
@@ -188,7 +188,7 @@ form .btn{width:100%}
 footer{padding:40px 0 46px;color:var(--dim);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
 footer .brand{color:#fff;font-size:17px}
-footer .brand svg{width:32px;height:32px}
+footer .brand svg{width:50px;height:35px}
 .flinks{display:flex;flex-wrap:wrap;gap:6px 20px}
 .flinks a:hover{color:#fff}
 
@@ -244,7 +244,7 @@ footer .brand svg{width:32px;height:32px}
   .card,form,.panel,.doc{padding:24px}
   .brand .wm small{display:none}
   .brand{font-size:18px}
-  .brand svg{width:36px;height:36px}
+  .brand svg{width:52px;height:37px}
   .langs button{padding:6px 6px;font-size:11px}
   .orbits{--s:min(400px,70vw)}
   .chip{font-size:12px;padding:7px 12px 7px 7px;gap:7px}
