@@ -13,14 +13,17 @@
     { spacing: 150, link: 230, speed: .16, node: 1.9, alpha: .30, rgb: "150,200,255", phase: 2.1 }  // coarse, near
   ];
 
+  // Optional page tint: a page may set window.ArdWeb = { rgb: "r,g,b", light: bool } to recolour the web
+  // (used by the portfolio page to follow each case's palette). Without it the web looks exactly as before.
   const sprites = {};
-  function sprite(rgb) {
-    if (sprites[rgb]) return sprites[rgb];
+  function sprite(rgb, light) {
+    const key = rgb + (light ? "L" : "");
+    if (sprites[key]) return sprites[key];
     const c = document.createElement("canvas"); c.width = c.height = 64;
     const g = c.getContext("2d"), r = g.createRadialGradient(32, 32, 0, 32, 32, 32);
-    r.addColorStop(0, "rgba(235,245,255,1)"); r.addColorStop(.22, `rgba(${rgb},.55)`); r.addColorStop(1, `rgba(${rgb},0)`);
+    r.addColorStop(0, light ? `rgba(${rgb},1)` : "rgba(235,245,255,1)"); r.addColorStop(.22, `rgba(${rgb},.55)`); r.addColorStop(1, `rgba(${rgb},0)`);
     g.fillStyle = r; g.fillRect(0, 0, 64, 64);
-    return (sprites[rgb] = c);
+    return (sprites[key] = c);
   }
 
   function build() {
@@ -48,7 +51,9 @@
 
   function frame(t) {
     ctx.clearRect(0, 0, W, H);
+    const tint = window.ArdWeb && window.ArdWeb.rgb, light = !!(tint && window.ArdWeb.light);
     for (const { L, pts } of layers) {
+      const rgb = tint || L.rgb, boost = light ? 1.15 : 1;
       const link2 = L.link * L.link;
       for (const p of pts) {
         if (!still) {
@@ -65,17 +70,17 @@
           const b = pts[j]; if (b.f < .02) continue;
           const dx = a.x - b.x, dy = a.y - b.y, d2 = dx * dx + dy * dy;
           if (d2 > link2) continue;
-          const k = (1 - d2 / link2) * Math.min(a.f, b.f) * L.alpha;
+          const k = (1 - d2 / link2) * Math.min(a.f, b.f) * L.alpha * boost;
           if (k < .01) continue;
-          ctx.strokeStyle = `rgba(${L.rgb},${k.toFixed(3)})`;
+          ctx.strokeStyle = `rgba(${rgb},${k.toFixed(3)})`;
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
         }
       }
-      const spr = sprite(L.rgb);
+      const spr = sprite(rgb, light);
       for (const p of pts) {
         if (p.f < .05) continue;
         const tw = .65 + .35 * Math.sin(t * .0015 + p.tw);
-        ctx.globalAlpha = Math.min(1, p.f * L.alpha * 3.2 * tw);
+        ctx.globalAlpha = Math.min(1, p.f * L.alpha * 3.2 * tw * (light ? .7 : 1));
         const s = p.r * 10;
         ctx.drawImage(spr, p.x - s / 2, p.y - s / 2, s, s);
       }

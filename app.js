@@ -17,6 +17,9 @@
     document.documentElement.lang = l;
     document.querySelectorAll("[data-i18n]").forEach(el => { const v = t(el.dataset.i18n); if (v) el.textContent = v; });
     document.querySelectorAll("[data-i18n-html]").forEach(el => { const v = t(el.dataset.i18nHtml); if (v) el.innerHTML = v; });
+    document.querySelectorAll("[data-i18n-alt]").forEach(el => { const v = t(el.dataset.i18nAlt); if (v) el.alt = v; });
+    document.querySelectorAll("[data-i18n-aria]").forEach(el => { const v = t(el.dataset.i18nAria); if (v) el.setAttribute("aria-label", v); });
+    document.querySelectorAll("[data-i18n-ph]").forEach(el => { const v = t(el.dataset.i18nPh); if (v) el.placeholder = v; });
     document.querySelectorAll("#langs button").forEach(b => b.classList.toggle("active", b.dataset.lang === l));
     store("ardsoft_lang", l);
     listeners.forEach(fn => fn(l));
@@ -56,25 +59,52 @@
     el.addEventListener("pointerleave", () => { el.style.transform = ""; });
   });
 
+  // Portfolio teaser: the tilted gallery leans gently towards the cursor
+  const gal = document.querySelector(".work-gallery");
+  if (gal && fine && !still) {
+    const plane = gal.querySelector(".work-plane");
+    gal.addEventListener("pointermove", e => {
+      const r = gal.getBoundingClientRect();
+      plane.style.setProperty("--rx", (((e.clientX - r.left) / r.width) - .5) * 10 + "deg");
+      plane.style.setProperty("--ry", (((e.clientY - r.top) / r.height) - .5) * -8 + "deg");
+    });
+    gal.addEventListener("pointerleave", () => { plane.style.removeProperty("--rx"); plane.style.removeProperty("--ry"); });
+  }
+
   const y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
 
-  // Contact form → Web3Forms → Gmail
+  // Contact form → Web3Forms → Gmail (same form markup on the home and portfolio pages)
   const form = document.getElementById("form");
   if (form) {
     const statusEl = document.getElementById("f-status"), btn = document.getElementById("f-submit");
+    const label = () => t(btn.dataset.i18n || "f_submit");
+    const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    form.addEventListener("input", e => { if (e.target.hasAttribute("aria-invalid")) e.target.removeAttribute("aria-invalid"); });
+    form.addEventListener("change", e => { if (e.target.hasAttribute("aria-invalid")) e.target.removeAttribute("aria-invalid"); });
     form.addEventListener("submit", async e => {
       e.preventDefault();
+      if (btn.disabled) return;
       statusEl.className = "status";
-      const f = form.elements, name = f["name"].value.trim(), email = f["email"].value.trim(), msg = f["message"].value.trim();
-      if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !msg || !document.getElementById("f-consent").checked) {
-        statusEl.classList.add("err"); statusEl.textContent = t("f_invalid"); return;
+      const f = form.elements, consent = document.getElementById("f-consent");
+      const name = f["name"].value.trim(), email = f["email"].value.trim(), msg = f["message"].value.trim();
+      const bad = [];
+      if (!name) bad.push(f["name"]);
+      if (!emailOk(email)) bad.push(f["email"]);
+      if (!msg) bad.push(f["message"]);
+      if (!consent.checked) bad.push(consent);
+      form.querySelectorAll("[aria-invalid]").forEach(el => el.removeAttribute("aria-invalid"));
+      if (bad.length) {
+        bad.forEach(el => el.setAttribute("aria-invalid", "true"));
+        statusEl.classList.add("err"); statusEl.textContent = t("f_invalid");
+        bad[0].focus();
+        return;
       }
       const data = Object.fromEntries(new FormData(form));
       data.language = lang.toUpperCase();
       data.consent = "Accepted privacy policy (" + new Date().toISOString() + ")";
       data.subject = "New request from ardsoftsolutions.com — " + name + (data.company ? " (" + data.company + ")" : "");
       data.replyto = email;
-      btn.disabled = true; btn.textContent = t("f_sending");
+      btn.disabled = true; form.setAttribute("aria-busy", "true"); btn.textContent = t("f_sending");
       try {
         const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
         const j = await r.json();
@@ -83,7 +113,7 @@
       } catch (err) {
         statusEl.classList.add("err"); statusEl.textContent = t("f_err");
       } finally {
-        btn.disabled = false; btn.textContent = t("f_submit");
+        btn.disabled = false; form.removeAttribute("aria-busy"); btn.textContent = label();
       }
     });
   }
